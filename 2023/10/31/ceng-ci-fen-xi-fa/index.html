@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="智能合约漏洞检测技术综述, DuChuan&#39;s Blog">
+    <meta name="keywords" content="层次分析法, DuChuan&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>智能合约漏洞检测技术综述 | DuChuan&#39;s Blog</title>
+    <title>层次分析法 | DuChuan&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">智能合约漏洞检测技术综述</h1>
+                    <h1 class="description center-align post-title">层次分析法</h1>
                 </div>
             </div>
         </div>
@@ -346,12 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">
-                                <span class="chip bg-color">智能合约</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/">
-                                <span class="chip bg-color">漏洞检测</span>
+                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%86%B3%E7%AD%96/">
+                                <span class="chip bg-color">项目决策</span>
                             </a>
                         
                     </div>
@@ -362,8 +358,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="post-category">
-                                区块链
+                            <a href="/categories/%E5%86%B3%E7%AD%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                决策方法
                             </a>
                         
                     </div>
@@ -375,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-26
+                    2023-10-31
                 </div>
                 
 
@@ -399,73 +395,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文为论文《智能合约漏洞检测技术综述》的总结，以及本人调研的其他相关资料。</p>
-<p>董伟良, 刘哲, 刘逵, 黎立, 葛春鹏, 黄志球. 智能合约漏洞检测技术综述. 软件学报. <a target="_blank" rel="noopener" href="http://www.jos.org.cn/1000-">http://www.jos.org.cn/1000-</a> 9825&#x2F;6810.htm</p>
-<h2 id="1-智能合约简介"><a href="#1-智能合约简介" class="headerlink" title="1 智能合约简介"></a>1 智能合约简介</h2><p>智能合约(smart contract)是最早由Szabo于1996年首次引入的概念, 它是一段以计算机指令方式实现的传 统合约的自动化处理程序, 旨在以信息化方式传播、验证或执行合约的计算机协议。智能合约程序不只是一个可以自动执行的计算机程序, 它本身就是一个系统参与者, 对接收到的信息进行回应, 可 以接收和储存代币, 也可以向外发送信息和代币。 智能合约由高级编程语言(如Solidity)编写, 然后编译成支 持图灵完备指令集的虚拟机(如EVM、WASM等)字节码, 并发布到支持运行智能合约的系统上, 智能合约一 旦发布成功, 任何人都无法修改其代码或阻止其执行, 即不可逆性。	</p>
-<h2 id="2-进行智能合约漏洞检测的原因"><a href="#2-进行智能合约漏洞检测的原因" class="headerlink" title="2 进行智能合约漏洞检测的原因"></a>2 进行智能合约漏洞检测的原因</h2><p>智能合约具有不可逆性和不可违约性。智能合约的漏洞问题会带来巨大的经济损失，然而智能合约的不可逆性使得其代码漏洞问题在其发布之后无法被修复。</p>
-<h3 id="2-1-不可逆性"><a href="#2-1-不可逆性" class="headerlink" title="2.1 不可逆性"></a>2.1 不可逆性</h3><p>不可逆性意味着一旦智能合约的交易被确认和记录在区块链上，它们就不可逆转。这是因为区块链上的每个区块都包含了之前区块的哈希值，从而形成了一个不可改变的链条。因此，一旦交易被包含在一个区块中，要修改或撤销这笔交易变得极其困难，几乎是不可能的。</p>
-<h3 id="2-2-不可违约行"><a href="#2-2-不可违约行" class="headerlink" title="2.2 不可违约行"></a>2.2 不可违约行</h3><p>不可违约性表示一旦智能合约执行，合同的条件将无法被撤销或更改。智能合约的执行是自动化的，无需第三方的干预，因此合同的规则将按照合同的规定被刚好执行，而不受外部因素的影响。</p>
-<h2 id="3-智能合约漏洞检测方法"><a href="#3-智能合约漏洞检测方法" class="headerlink" title="3 智能合约漏洞检测方法"></a>3 智能合约漏洞检测方法</h2><p>智能合约漏洞检测主要包括六大类：基于符号执行、基于模糊测试、基于污点分析、基于形式化验证、基于机器学习的漏洞检测技术和其他技术。</p>
-<h3 id="3-1-基于符号执行的智能合约漏洞检测"><a href="#3-1-基于符号执行的智能合约漏洞检测" class="headerlink" title="3.1 基于符号执行的智能合约漏洞检测"></a>3.1 基于符号执行的智能合约漏洞检测</h3><p>基于符号执行的智能合约漏洞检测技术将合约程序的变量值抽象成符号输入, 运行过程中的所有变量到达目 标代码时都会由符号相关的函数组成符号路径, 每个符号路径都有一个路径约束, 通过约束求解器分析相应的路 径约束和约束关系, 从而检测出合约中的漏洞问题。</p>
-<h3 id="3-2-基于模糊检测的智能合约漏洞检测"><a href="#3-2-基于模糊检测的智能合约漏洞检测" class="headerlink" title="3.2 基于模糊检测的智能合约漏洞检测"></a>3.2 基于模糊检测的智能合约漏洞检测</h3><p>基于模糊测试的智能合约漏洞检测技术通过随机地构造出非预期的测试输入数据, 对智能合约进行大量测试 来发现其中的漏洞</p>
-<h3 id="3-3-基于污点分析的智能合约漏洞检测"><a href="#3-3-基于污点分析的智能合约漏洞检测" class="headerlink" title="3.3 基于污点分析的智能合约漏洞检测"></a>3.3 基于污点分析的智能合约漏洞检测</h3><p>污点分析的一般流程为: 首先识别污点信息在智能合约中的产生点并对其进行标记; 然后按照实际需求和污 点传播规则进行前向或后向数据依赖分析, 得到污点的数据依赖和被依赖关系的指令集合; 最终在一些关键的程 序点检查关键的操作是否会受到污点信息的影响。</p>
-<h3 id="3-4-基于形式化验证的智能合约漏洞检测"><a href="#3-4-基于形式化验证的智能合约漏洞检测" class="headerlink" title="3.4 基于形式化验证的智能合约漏洞检测"></a>3.4 基于形式化验证的智能合约漏洞检测</h3><p>形式化验证技术是一种验证程序是否符合预期设计的属性和规范的技术, 其使用严谨的数学语言和逻辑描述 智能合约, 以便对其进行严格的数学推理和验证。</p>
-<h3 id="3-5-基于机器学习的智能合约漏洞检测"><a href="#3-5-基于机器学习的智能合约漏洞检测" class="headerlink" title="3.5 基于机器学习的智能合约漏洞检测"></a>3.5 基于机器学习的智能合约漏洞检测</h3><p>机器学习使用已有的数据让计算机模拟或实现类似人类的学习行为, 来不断优化计算机程序的性能, 在智能 合约漏洞检测领域也有一定程度的应用。</p>
-<h3 id="3-6-其他方法"><a href="#3-6-其他方法" class="headerlink" title="3.6 其他方法"></a>3.6 其他方法</h3><p>对合约代码抽象语法树、控制流图或自定义中间表示形式的静态分析以及基于代码克隆检测、攻击向量、 入侵检测系统等难以归类的方法被分类为其他。</p>
-<h2 id="4-数据分析与国内外对比"><a href="#4-数据分析与国内外对比" class="headerlink" title="4 数据分析与国内外对比"></a>4 数据分析与国内外对比</h2><h3 id="4-1-技术发展趋势"><a href="#4-1-技术发展趋势" class="headerlink" title="4.1 技术发展趋势"></a>4.1 技术发展趋势</h3><ul>
-<li><strong>符号执行</strong>与形式化验证一直是智能合约漏洞检测技术的主流方法，符号执行也常作为辅助方法用于辅助测试用例生成、可达性检验等，而目前国内技术在这两种方法的应用上并不充分，其中形式化验证方法在论文集中的演技依旧空白，工业界则有成都 链安科技公司研发的VaaS；</li>
-<li><strong>模糊测试</strong>因其漏洞发掘的高效性, 在智能合约漏洞发掘领域也应用广泛, 国内技术在这一方法的研究进展平稳; </li>
-<li>采用新兴的<strong>机器学习</strong>和<strong>传统的软件分析</strong>等其他方法的技术近些年来也逐渐迁移到智能 合约漏洞检测领域, 国内技术目前在这两种方法的应用上也相对前沿; </li>
-<li><strong>污点分析</strong>在智能合约漏洞检测领域的应用较其他5种方法并不充分, 但其常作为辅助方法弥补其他方法的不足。</li>
-</ul>
-<h3 id="4-2-漏洞覆盖范围"><a href="#4-2-漏洞覆盖范围" class="headerlink" title="4.2 漏洞覆盖范围"></a>4.2 漏洞覆盖范围</h3><p>论文依据检测技术覆盖的漏洞类型，将其分为通用漏洞检测技术和专用漏洞检测技术。国内外在通用技术和专用技术两方面研究的分布则没有太大差异, 以通用技术的研究为主, 在专用技术中, 智能合约特性相关的漏洞在国内比传统应用程序漏洞引起了更大的关注; 在检测平台方面, 以太坊平台依然是目前的研究热门, 但其他平台的漏洞检测和跨平台技术的研究也成为当下新的趋势, 国内虽然在以太坊平台的漏洞检测起步较晚, 但近年来在以太坊之外的EOS、跨平台检测技术的研究方面则相对前沿。</p>
-<h3 id="4-3-实验数据分析"><a href="#4-3-实验数据分析" class="headerlink" title="4.3 实验数据分析"></a>4.3 实验数据分析</h3><img src="/2023/10/26/zhi-neng-he-yue-lou-dong-jian-ce-ji-zhu-zong-shu/image-20231030215704701.png" class="" title="image-20231030215704701">		
+                <p>利用数学的方式帮你在多个方案中做决策的科学方法.</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>层次分析法（Analytic Hierarchy Process，AHP）是一种多标准决策分析方法，最初由美国数学家Thomas L. Saaty于20世纪70年代提出。AHP被广泛用于帮助决策者在复杂多标准决策问题中做出权衡和选择，如项目选择、供应商评估、投资决策等。</p>
+<h2 id="2-基本思想"><a href="#2-基本思想" class="headerlink" title="2 基本思想"></a>2 基本思想</h2><p>AHP的核心思想是将一个复杂的多标准决策问题分解为若干层次，从总体目标到具体备选方案的各层次，即从目标层到指标层（可能有多个）再到方案层，然后在每一层次上进行两两比较，以确定各因素或备选方案的重要性权重，最后将这些权重综合在一起，得出最终的决策结果。</p>
+<blockquote>
+<p>例：总体目标为“选择一个研究生课程”，具体方案有：高级网安、泛函分析基础、黑客心理学，指标层有：学分、考核难度、学习难度、教学方式。其中指标层可以分为多层，每深一层都是上层指标的细分（细分出的指标不少于两个）。</p>
+<p>注：指标，准测，标准，因素都是一个意思。</p>
+</blockquote>
+<h2 id="3-基本步骤"><a href="#3-基本步骤" class="headerlink" title="3 基本步骤"></a>3 基本步骤</h2><ol>
+<li><p>建立层次结构</p>
+<p> 首先，确定要解决的问题的总体目标，并将其分解为若干次级目标（也称为指标）和备选方案。这些指标和方案形成一个层次结构，类似于一棵树状结构。总体目标通常是你希望实现的最终目标，指标是用来评估备选方案的标准。</p>
+ <img src="/2023/10/31/ceng-ci-fen-xi-fa/image-20231031194851358.png" class="" title="层次结构样例">
 
-<p>论文将实验中采用的数据集分为了案例分析和平台检测两种分类，案例分析中的数据集是人工挑选出的优质智能合约, 但其数据集相对较小在一些典型案例上可能存在疏漏, 而平台检测则是对平台上的智能合约进行全面性的安全检测, 但其上存在大量不成熟与冗余的合约, 一定程度上降低了平台检测的效率;  发现符号执行和其他分类标准下的技术被广泛应用在对比实验中, 由于国内符号执行的研究不足、智能合约安全研究起步晚、工具开源比例低等原因, 使得国内技术鲜有参与到其他论文的对比实验中, 仅有4项技术在6篇论文的对比实验中被分别使用到了一次或两次。</p>
-<h3 id="4-4-国内研究的不足之处和改进方向"><a href="#4-4-国内研究的不足之处和改进方向" class="headerlink" title="4.4 国内研究的不足之处和改进方向"></a>4.4 国内研究的不足之处和改进方向</h3><ul>
-<li>不足之处：<ul>
-<li>采用方法分布不均衡以及技术开放较少；</li>
-<li>国内研究工作 采用的方法更集中在模糊测试、机器学习与其他3类, 而作为智能合约漏洞检测技术主流方法的符号执行与形式 化验证；</li>
-<li>国内研究工作开源相对较少, 更倾 向于闭源, 该状况并不利于该领域的进一步发展；</li>
-<li>国内技术较少参与到其他研究工作的对比实验 中, 仅有4项技术在6篇论文的对比实验中被分别使用到了一次或两次；</li>
-</ul>
+<p> 如果指标层有多层，则例如下图所示。</p>
+<p> <img src="https://img-blog.csdnimg.cn/img_convert/d476b972c13221d3e1223b1fd5d6782b.png" alt="img"></p>
 </li>
-<li>改进方向：<ul>
-<li>符号执行与形式化验证领域的研究人员将相关研究工作与智能合约漏洞检测结合, 以推动国内该领域研究的全面发展；</li>
-<li>国内研究人员能够公开相关研究技术的工具代码(具有保密协议的例外)，在技术开源的过程中, 研究者也可以 基于社区的反馈情况对开源技术进行进一步的优化。</li>
-</ul>
+<li><p>构建判断矩阵</p>
+<p> 矩阵的元素表示各指标之间的相对重要性，即指标i比指标j的重要程度，量化值见下图，则指标j比指标i的重要程度为i比j的倒数。</p>
+ <img src="/2023/10/31/ceng-ci-fen-xi-fa/image-20231031195218387.png" class="" title="指标之间比较量化值规定">
+
+<p> 对于n个因素的比较，会得到一个n×n的判断矩阵。判断矩阵主对角线上的元素为1，因为每个因素相对于自身的重要性为1。例如吃住比景色的重要性为4，表示吃住比景色重要4倍，则景色比吃住的重要性为1&#x2F;4。</p>
+ <img src="/2023/10/31/ceng-ci-fen-xi-fa/image-20231031195615607.png" class="" title="判断矩阵样例">
 </li>
-</ul>
-<h2 id="5-讨论与展望"><a href="#5-讨论与展望" class="headerlink" title="5 讨论与展望"></a>5 讨论与展望</h2><h3 id="5-1-现有研究的不足"><a href="#5-1-现有研究的不足" class="headerlink" title="5.1 现有研究的不足"></a>5.1 现有研究的不足</h3><ol>
-<li><strong>以太坊以外的平台与跨平台的漏洞检测需要进一步的研究。</strong>不同平台在虚拟机实现、底层特征、智能合约机制等方面存在差异。</li>
-<li><strong>智能合约漏洞检测技术无法适配多样化的智能合约编程语言。</strong>不同编程语言在语法语义规则和编译成字节码的过程中都存在差异。</li>
-<li><strong>现有技术所依赖的漏洞检测方法本身具有局限性</strong>：<ul>
-<li>模糊测试在测试数据生成的过程中会存在路径覆盖率低、测试数据效率低下等缺点；</li>
-<li>符号执行在得到高路径覆盖率的同时，又引入了路径爆炸与约束求解难等问题；</li>
-<li>形式化验证自动化程度较低，需要基于严谨的数学推导，且无法动态分析，缺乏可达性验证，误报率较高；</li>
-<li>污点传播过 程中内存存储信息的处理和信息流分析不全面造成的过污染与欠污染也是现阶段面临的难点；</li>
-<li>机器学习对数据集处理与算法选择依赖较高，造成源码语义建模不足，且黑箱性较大，导致大多情况检测结果的可解释性较差；</li>
-<li>中间表示形式的静态分析以及传统软件分析和安全领域迁移而来方法也带 来了诸如运行时内存信息缺失、并发检测不足和未知类型漏洞诊断能力较差等缺陷。</li>
-</ul>
+<li><p>计算各层要素对应权重</p>
+<p> 使用数学方法，计算判断矩阵的特征向量和特征值。特征向量对应于各因素的权重，而特征值反映了判断矩阵的一致性。并且将特征向量中的权重进行归一化，以便进行下一级的比较或综合。</p>
 </li>
-<li><strong>检测结果的漏报率和误报率都较高。</strong>由于智能合约漏洞类型的繁多与特征的复杂性，以及检测方法本身的缺陷。</li>
-<li><strong>漏洞检测技术的漏洞类型覆盖率较低。</strong></li>
-<li><strong>检测结果中漏洞利用率低下</strong>。智能合约中的漏洞分类众多, 产生原因也各不相同, 一次成 功的攻击往往需要多个漏洞的相互配合, 并可能涉及多个合约之间的相互调用, 多方因素共同造成了当前检测结 果中漏洞利用率低下的现状. </li>
-<li><strong>审计效率低下、人工审计工作量过于繁琐。</strong>当前技术依然存在较长的漏洞检测时间与人工参与审计的问题，高效检测和完全自动化是智能合约开发周期中的重要一环。</li>
-</ol>
-<h3 id="5-2-未来研究方向和改进思路"><a href="#5-2-未来研究方向和改进思路" class="headerlink" title="5.2 未来研究方向和改进思路"></a>5.2 未来研究方向和改进思路</h3><ol>
-<li><strong>完善智能合约的安全开发流程。</strong></li>
-<li><strong>改进现有漏洞检测方法。</strong><ul>
-<li>模糊测试关键步骤是测试用例的生成，但是测试用例规模庞大，执行效果并不理想。采用如遗传、模拟退火、多目标优化等算法, 制定出优秀的测试 用例生成策略, 另一个研究方向是通过符号执行、污点分析以及新兴的机器学习技术, 弥补模糊测试过程中语义 理解的缺失, 生成能够触发研究人员所关注逻辑的结构化测试用例, 提高模糊测试的路径覆盖率与漏洞发掘的效率.</li>
-<li>制约符号执行效果的最主要挑战是执行路径爆炸难题, 未来可行的方法是结合现有智能合约的审计经验与已曝漏洞的分析结果, 寻找合约中易产生漏洞的高危指令, 如SUICIDE、CALL、DELETECALL等, 将涉及这些 指令的路径定义为重点路径, 只符号执行标记的重点路径并进行漏洞验证, 达到剪枝冗余路径的效果, 有效地缩减 符号执行过程中的路径空间, 缓解执行过程中的路径爆炸问题. 与此同时, 符号执行因其高效的路径覆盖率, 能推 断出到达特定程序状态的条件, 并约束求解出测试者关注逻辑的输入, 可作为其他漏洞检测方法的辅助方法, 基于 符号执行的结果可用于模糊测试的测试输入的优化、形式化验证的模型状态空间搜索与漏洞检测结果的可达性 检验等, 达到提高路径覆盖率、降低漏洞检测结果假阳性等效果。</li>
-<li>形式化验证方法通过数学推演来验证智能合约系统的安全性, 现有的研究工作大多数自动化程度不高, 且检 测出来的漏洞不一定存在可达路径. 未来的研究方向应为检测不同漏洞目标的合约定制对应的验证规范描述, 突 破验证成本昂贵、大规模合约无法适应等技术限制, 并将应用范围从验证一般合约的功能和安全属性等, 逐步扩 展到存在复杂业务逻辑等高阶性质证明的商业场景中. 在定制形式化验证规范阶段, 可借助污点分析与静态分析 等方法的源码语义信息, 构造出描述合约正确性与公平性的形式化规范, 而在推理合约行为是否符合归纳的形式 化规约时, 则可通过符号执行技术扩大可达性检验属性的状态空间, 达到降低形式化验证成本与漏洞检测假阳性 的效果。</li>
-<li>污点分析通过追踪程序中由污点源引入的数据能否不经无害化处理而直接传播到汇聚点, 来检测智能合约 中是否存在漏洞. 污点数据识别的精度与传播策略的优劣, 引发了污点分析过程中的过污染与欠污染问题, 成为污 点分析主要的性能瓶颈, 严重影响了智能合约检测的精度与效率. 同时, 动态污点分析过程中也存在精度与效率之 间不可调和的矛盾. 基于智能合约性质与已知漏洞特征, 权衡好智能合约执行效率和污点分析精度, 设计更科学的 污点识别方法的同时并定制严谨的污点传播策略, 如追踪区块数、时间戳等矿工可以操纵的信息、可操作代币转 移的合约函数行为等, 可以尽可能地降低污点传播过程中的过污染与欠污染的出现频率. 除此之外, 污点分析过程 中捕获的智能合约信息流中的语义, 对形式化规范的构造、模糊测试策略的制定以及符号执行关键路径的提取, 都能够提供一定程度的深层语义信息, 用于提高智能合约漏洞检测的效果。</li>
-<li>现有的基于机器学习的智能合约漏洞检测技术大多是通过数据集训练出的漏洞检测模型, 来给出最终的漏 洞检测结果, 是典型的黑盒测试流程. 由于机器学习模型固有的“黑箱性”, 其内部检测漏洞的具体工作状态和处理 过程是不透明的, 因此缺乏对漏洞检测结果的合理解释, 使得其检测结果无法令人信服. 传统检测工具中定义的规 则与提取出的语义信息是分析合约漏洞的利器, 未来的机器学习模型应考虑融合传统检测方法中漏洞相关的规则 及语义信息, 有利于提高模型输出结果的可解释性和漏洞检测的准确率. 同时, 机器学习方法使用已有的数据让计 算机模拟或实现类似人类的学习行为, 可用于改善现阶段低效的审计效率并减轻繁琐的人工审计工作量。</li>
-<li>基于表示形式的静态分析方法通常将定义的漏洞规则, 应用到智能合约源码或字节码转换的中间表示形式 来检测漏洞. 未来的研究方向应当提高这类检测方法的扩展性和适应性, 专注于中间表现形式的通用性上. 此外, 将静态分析与动态执行的结合也能够显著提高漏洞检测的效果. 而传统软件分析和安全领域迁移而来的方法应更 多结合智能合约在区块链、虚拟机、高级编程语言等层面的特性, 最大程度降低自身方法的局限性, 适应到智能 合约漏洞检测的背景中。</li>
-</ul>
+<li><p>一致性检验 </p>
+<p> 为了确保比较矩阵的一致性，需要计算一致性比率（Consistency Ratio）。一致性比率是特征值的某种函数，它反映了判断矩阵的一致性。如果一致性比率小于某个阈值（通常为0.1），则认为比较矩阵是一致的，否则需要重新调整比较矩阵。</p>
 </li>
-<li><strong>构建智能合约的标准实验数据集。</strong></li>
-<li><strong>制定统一的漏洞检测技术性能评估标准。</strong></li>
+<li><p>得出结论</p>
+</li>
 </ol>
 
                 
@@ -493,7 +452,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crossProblems.github.io/2023/10/26/zhi-neng-he-yue-lou-dong-jian-ce-ji-zhu-zong-shu/">https://crossProblems.github.io/2023/10/26/zhi-neng-he-yue-lou-dong-jian-ce-ji-zhu-zong-shu/</a>
+                    <a href="https://crossProblems.github.io/2023/10/31/ceng-ci-fen-xi-fa/">https://crossProblems.github.io/2023/10/31/ceng-ci-fen-xi-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -531,12 +490,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">
-                                    <span class="chip bg-color">智能合约</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/">
-                                    <span class="chip bg-color">漏洞检测</span>
+                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%86%B3%E7%AD%96/">
+                                    <span class="chip bg-color">项目决策</span>
                                 </a>
                             
                         </div>
@@ -706,9 +661,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/10/31/ceng-ci-fen-xi-fa/">
                     <div class="card-image">
@@ -726,9 +682,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -741,6 +697,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -759,13 +716,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/10/25/hello-world/">
+                <a href="/2023/10/26/zhi-neng-he-yue-lou-dong-jian-ce-ji-zhu-zong-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="智能合约漏洞检测技术综述">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">智能合约漏洞检测技术综述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,14 +733,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/code/" class="post-category">
-                                    code
+                            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="post-category">
+                                    区块链
                                 </a>
                             
                             
@@ -793,12 +750,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c</span>
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">
+                        <span class="chip bg-color">智能合约</span>
                     </a>
                     
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/">
+                        <span class="chip bg-color">漏洞检测</span>
                     </a>
                     
                 </div>
